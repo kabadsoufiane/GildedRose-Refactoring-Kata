@@ -20,30 +20,38 @@ class GildedRose {
     }
 
     private void updateQualityForItem(Item item) {
-        switch (item.name) {
-            case "Aged Brie":
-                increaseQuality(item, 1);
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                updateBackstagePassQuality(item);
-                break;
-            default:
-                decreaseQuality(item, 1);
-                break;
+        if (item.name.startsWith("Conjured")) {
+            decreaseQuality(item, 2);
+        } else {
+            switch (item.name) {
+                case "Aged Brie":
+                    increaseQuality(item, 1);
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    updateBackstagePassQuality(item);
+                    break;
+                default:
+                    decreaseQuality(item, 1);
+                    break;
+            }
         }
     }
 
     private void updateQualityForExpiredItem(Item item) {
-        switch (item.name) {
-            case "Aged Brie":
-                increaseQuality(item, 1);
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                item.quality = 0;
-                break;
-            default:
-                decreaseQuality(item, 1);
-                break;
+        if (item.name.startsWith("Conjured")) {
+            decreaseQuality(item, 2);
+        } else {
+            switch (item.name) {
+                case "Aged Brie":
+                    increaseQuality(item, 1);
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    item.quality = 0;
+                    break;
+                default:
+                    decreaseQuality(item, 1);
+                    break;
+            }
         }
     }
 
