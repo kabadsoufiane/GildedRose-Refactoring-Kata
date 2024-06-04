@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class GildedRose {
+    private static final String NORMAL_ITEM = "Normal Item";
     Item[] items;
     Map<String, ItemBehavior> behaviors;
 
@@ -19,7 +20,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemBehavior behavior = behaviors.getOrDefault(item.name, behaviors.get("Normal Item"));
+            ItemBehavior behavior = behaviors.getOrDefault(item.name, behaviors.get(NORMAL_ITEM));
             behavior.update(item);
         }
     }
